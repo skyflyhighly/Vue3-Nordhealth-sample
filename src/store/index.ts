@@ -10,10 +10,4 @@ export const useMainStore = defineStore({
     ({
       currentEmail: "",
     } as RootState),
-  actions: {
-    setCurrentEmail(email: String) {
-      if (!email) return;
-      this.currentEmail = email;
-    },
-  },
 });

@@ -2,6 +2,7 @@
 import { reactive } from "vue";
 import { useRouter } from "vue-router";
 import { useMainStore } from "../store";
+import validate from "../utils/validation.js";
 
 const store = useMainStore();
 const router = useRouter();
@@ -14,12 +15,11 @@ const state = reactive({
 });
 
 const handleSignIn = () => {
-  if (state.email === "" || state.password === "") {
-    state.isError = true;
-    state.errorMessage = "No email address or password";
-  } else if (!/^[^@]+@\w+(\.\w+)+\w$/.test(state.email)) {
-    state.isError = true;
-    state.errorMessage = "Email is not valid";
+  [isError, errorMessage] = validate(state.email, state.password);
+
+  if (isError) {
+    state.isError = isError;
+    state.errorMessage = errorMessage;
   } else {
     state.isError = false;
     state.errorMessage = "";
