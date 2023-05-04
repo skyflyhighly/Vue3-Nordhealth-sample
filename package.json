@@ -1,0 +1,24 @@
+{
+  "name": "nordhealth",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@nordhealth/components": "^2.17.0",
+    "@nordhealth/css": "^2.5.0",
+    "@nordhealth/themes": "^7.0.4",
+    "@vue/composition-api": "^1.7.1",
+    "pinia": "^2.0.0-rc.10",
+    "vue": "^3.2.47",
+    "vue-router": "^4.1.6"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.1.0",
+    "vite": "^4.3.2"
+  }
+}
