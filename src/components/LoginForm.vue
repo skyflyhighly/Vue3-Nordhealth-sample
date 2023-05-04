@@ -1,10 +1,10 @@
 <script setup>
 import { reactive } from "vue";
 import { useRouter } from "vue-router";
-import { useMainStore } from "../store";
+import { useUserStore } from "../store";
 import validate from "../utils/validation.js";
 
-const store = useMainStore();
+const store = useUserStore();
 const router = useRouter();
 
 const state = reactive({
@@ -15,7 +15,7 @@ const state = reactive({
 });
 
 const handleSignIn = () => {
-  [isError, errorMessage] = validate(state.email, state.password);
+  const { isError, errorMessage } = validate(state.email, state.password);
 
   if (isError) {
     state.isError = isError;

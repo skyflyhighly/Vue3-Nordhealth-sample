@@ -4,10 +4,14 @@ export type RootState = {
   currentEmail: String;
 };
 
-export const useMainStore = defineStore({
-  id: "mainstore",
-  state: () =>
-    ({
-      currentEmail: "",
-    } as RootState),
+export const useUserStore = defineStore({
+  id: "userstore",
+  state: (): RootState => ({
+    currentEmail: "",
+  }),
+  actions: {
+    setCurrentEmail(email: string) {
+      this.currentEmail = email;
+    },
+  },
 });

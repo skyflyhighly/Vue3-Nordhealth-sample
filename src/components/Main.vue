@@ -1,18 +1,18 @@
 <script setup>
-import { useMainStore } from "../store";
+import { useUserStore } from "../store";
 import { useRouter } from "vue-router";
 import { onMounted } from "vue";
 
-const store = useMainStore();
+const userStore = useUserStore();
 const router = useRouter();
 
 const handleSignOut = () => {
-  store.$patch({ currentEmail: "" });
+  userStore.setCurrentEmail("");
   router.push("/");
 };
 
 onMounted(() => {
-  if (store.currentEmail === "") router.push("/");
+  if (userStore.currentEmail === "") router.push("/");
 });
 </script>
 
@@ -37,9 +37,9 @@ onMounted(() => {
           <nord-avatar
             slot="start"
             aria-hidden="true"
-            :name="store.currentEmail"
+            :name="userStore.currentEmail"
           ></nord-avatar>
-          {{ store.currentEmail }}
+          {{ userStore.currentEmail }}
         </nord-button>
         <nord-dropdown-item @click="handleSignOut">
           Sign out
@@ -55,7 +55,7 @@ onMounted(() => {
         <h2 slot="header">Signin Successful!</h2>
         <nord-banner variant="success">
           <nord-stack direction="vertical" gap="s">
-            <p>Welcome, {{ store.currentEmail }}</p>
+            <p>Welcome, {{ userStore.currentEmail }}</p>
             <p>Today is {{ new Date().toUTCString() }}</p>
           </nord-stack>
         </nord-banner>
