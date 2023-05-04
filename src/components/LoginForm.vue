@@ -1,8 +1,8 @@
-<script setup>
+<script setup lang="ts">
 import { reactive } from "vue";
 import { useRouter } from "vue-router";
 import { useUserStore } from "../store";
-import validate from "../utils/validation.js";
+import validate from "../utils/validation.ts";
 
 const store = useUserStore();
 const router = useRouter();
