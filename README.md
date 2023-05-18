@@ -1,4 +1,4 @@
-## Nordhealth test project
+## Nordhealth Sample project (Vue3)
 
 ### description
 
